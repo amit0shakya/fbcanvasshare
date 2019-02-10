@@ -160,7 +160,7 @@ module.exports=function(data){
                     <img src="poster.png">
 
                     <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${previewURL}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     
                     </div>
                   </body>
