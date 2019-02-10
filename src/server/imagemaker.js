@@ -80,36 +80,28 @@ module.exports=function(data){
 
         console.log("Make HTML function")
 
-        // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
-        // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
-        var domain= `fbcanvasshare.herokuapp.com`;
-        var image=`https://${domain}/serverdata/${id}/poster.png`;
-        var previewURL=`https://${domain}/serverdata/preview/${id}/`;
-        var title = `Social Post`;
-        var encodedURL = `https%3A%2F%2F${domain}%2Fserverdata%2F${id}%2F`;
-        var sharedUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedURL}%2F${id}%2F&amp;src=sdkpreparse`;
+        var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
+        var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
 
         var html=`  
-                    <!DOCTYPE html>
-                    <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-                    <head>
-                    <title>${title}</title>
-                    <meta charset="UTF-8">         
+                    <html>
                     
-                    <meta property="og:type" content="website"/>
-                    <meta property="fb:app_id" content="576379196100963"/>
-                    <meta property="og:title" content=${title}">
-                    <meta property="og:url" content=${previewURL}"/>
+                    <head>
+                    <title>Amit Website Post</title>
 
-                    <meta property="og:image" content=${image}/>
-                    <meta property="og:image:width" content="600">
-                    <meta property="og:image:height" content="315">
-                    <meta property="og:image:type" content="image/png" />
-                    <meta property="og:description" content="I love this selfie" />
-
-                    <meta property="og:image:secure_url" content=${secureContentURL} />                    
+                    
+                    <meta property="og:site_name"     content="only4laugh.com" />
+                    <meta property="og:url"           content=${previewURL} />
+                    <meta property="og:type"          content="Article" />
+                    <meta property="og:title"         content="Post Title" />
+                    <meta property="og:description"   content="Post Discription" />
+                    <meta property="og:image:secure_url"content=${contentURL} />
                     <meta property="og:image:url"     content=${contentURL} />
-                   
+                    <meta property="og:image:type"    content="image/png" />
+                    <meta property="og:image:width"   content="600" />
+                    <meta property="og:image:height"  content="300" />
+                    <meta property="fb:app_id"        content="576379196100963" />
+                    
                     <meta name="robots"              content="all" />
                     <meta http-equiv="Cache-control" content="public" />
 
@@ -117,20 +109,13 @@ module.exports=function(data){
 
                     <style>
                             body{ 
-                                    border:1px solid #000; 
-                                    box-sizing: border-box; 
-                                    margin: 0px; 
-                                    padding: 0px;
+                                border:1px solid #000; 
+                                box-sizing: border-box; 
+                                margin: 0px; 
+                                padding: 0px;
                                 }
-                            p {
-                                    float:left
-                            }
-
-                            img {
-                                margin:0px; 
-                                padding:0px; 
-                                float:left;
-                            }
+                            p{float:left}
+                            img{margin:0px; padding:0px; float:left;}
                     </style>
 
                     <script>
@@ -139,27 +124,36 @@ module.exports=function(data){
                             appId      : '576379196100963',
                             cookie     : true,
                             xfbml      : true,
-                            version    : 'v3.2'
+                            version    : 'v2.12'
                         });
             
                         FB.AppEvents.logPageView();   
             
                         FB.getLoginStatus(function(response) {
                             if (response.status === 'connected') {
-                                console.log('Logged in.');
+                            console.log('Logged in.');
                             }
                             else {
-                                FB.login();
+                            FB.login();
                             }
                         });
                         };
                     
+                        (function(d, s, id){
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.id = id;
+                        js.src = "https://connect.facebook.net/en_US/sdk.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+            
+            
                         function myFacebookLogin() {
                             FB.login(function(){}, {scope: 'publish_actions'});
                         }
                       </script>
-                      <body>
 
+                      <body>
                       <div id="fb-root"></div>
                         <script>(function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
@@ -167,17 +161,15 @@ module.exports=function(data){
                         js = d.createElement(s); js.id = id;
                         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1';
                         fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-
-                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p><br/>
-                    <img src="poster.jpg">
-
-                    <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                        <a target="_blank" href="${sharedUrl}" class="fb-xfbml-parse-ignore">Share</a>
-                    </div>
-
+                        }(document, 'script', 'facebook-jssdk'));
+                        </script>
+                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
+                    <img src="poster.png">
+                    <div class="fb-share-button" data-href="https://amit0shakyafbshare.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
                     </div>
                   </body>
+              
               </html>`
 
               return html;
