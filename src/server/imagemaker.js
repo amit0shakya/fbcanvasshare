@@ -80,8 +80,10 @@ module.exports=function(data){
 
         console.log("Make HTML function")
 
-        var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
-        var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
+        var contentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
+        var previewURL=`https://fbcanvasshare.herokuapp.com/preview/${id}`
+        var encodedURL = `https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2F${id}%2F`;
+        
 
         var html=`  
                     <html>
@@ -157,8 +159,8 @@ module.exports=function(data){
                     <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
                     <img src="poster.png">
 
-                    <div class="fb-share-button" data-href="https://fbcanvasshare.herokuapp.com/serverdata/cuod9rw0jymerls-10-1-2019-13-26-422/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2Fcuod9rw0jymerls-10-1-2019-13-26-422%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     
                     </div>
                   </body>
