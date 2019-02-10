@@ -28752,7 +28752,7 @@ var Project = function (_Component) {
 
                 console.log("Image write success from server");
                 // https://amit0shakyafbshare.herokuapp.com
-                var sharePath = './serverdata/' + response.data.id + '/';
+                var sharePath = 'https://fbcanvasshare.herokuapp.com/serverdata/' + response.data.id + '/';
                 window.location.href = sharePath;
             });
         }
