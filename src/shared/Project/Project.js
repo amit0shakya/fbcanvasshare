@@ -51,8 +51,8 @@ class Project extends Component {
 
             console.log("Image write success from server")
             // https://amit0shakyafbshare.herokuapp.com
-            var serverPath = "https://fbcanvasshare.herokuapp.com";
-            var sharePath= serverPath + '/serverdata/'+response.data.id+'/'
+            var domain = "fbcanvasshare.herokuapp.com";
+            var sharePath= "https://"  + domain + '/serverdata/' + response.data.id + '/'
             window.location.href = sharePath;
           })
 
@@ -141,6 +141,7 @@ class Project extends Component {
                             <canvas id="demoCanvas" width="600" height="315">
                                 alternate content
                             </canvas>
+                            <br/>
                             <button onClick={this.saveImage}>Save Image</button>
                     </div>
                 </div>

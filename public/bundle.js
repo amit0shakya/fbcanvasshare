@@ -28752,8 +28752,8 @@ var Project = function (_Component) {
 
                 console.log("Image write success from server");
                 // https://amit0shakyafbshare.herokuapp.com
-                var serverPath = "https://fbcanvasshare.herokuapp.com";
-                var sharePath = serverPath + '/serverdata/' + response.data.id + '/';
+                var domain = "fbcanvasshare.herokuapp.com";
+                var sharePath = "https://" + domain + '/serverdata/' + response.data.id + '/';
                 window.location.href = sharePath;
             });
         }
@@ -28856,6 +28856,7 @@ var Project = function (_Component) {
                             { id: 'demoCanvas', width: '600', height: '315' },
                             'alternate content'
                         ),
+                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'button',
                             { onClick: this.saveImage },
