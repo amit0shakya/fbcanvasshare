@@ -142,7 +142,8 @@ class Project extends Component {
                             <canvas id="demoCanvas" width="600" height="315">
                                 alternate content
                             </canvas>
-                            <button onClick={this.saveImage}>Save Image</button>
+                            <br/><br/>
+                            <button onClick={this.saveImage}>Save</button>
                     </div>
                 </div>
 

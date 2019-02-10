@@ -78,9 +78,8 @@ module.exports=function(data){
 
     function makeHTML(id){
 
-        console.log("Make HTML function")
         var domain = `fbcanvasshare.herokuapp.com`;
-        var baseURL = `https://${domain}/`;
+        var linkURL = `https://${domain}/project/`;
         var previewURL= `https://${domain}/serverdata/${id}/`;
         var imageURL  = `https://${domain}/serverdata/${id}/poster.png`;
         var encodedURL= `https%3A%2F%2F${domain}%2Fserverdata%2F${id}%2F`;
@@ -89,7 +88,6 @@ module.exports=function(data){
         
         var html=`  
                     <html>
-                    
                     <head>
                     <title>${title}</title>
 
@@ -105,8 +103,8 @@ module.exports=function(data){
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
                     <meta property="og:image:height"  content="315" />                    
-                    <meta name="robots"              content="all" />
-                    <meta http-equiv="Cache-control" content="public" />
+                    <meta name="robots"               content="all" />
+                    <meta http-equiv="Cache-control"  content="public" />
 
                     </head>
 
@@ -139,7 +137,7 @@ module.exports=function(data){
                     <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a target="_blank" href="${baseURL}" class="fb-xfbml-parse-ignore">CREATE YOUR OWN</a>
+                    <a target="_blank" href="${linkURL}" class="fb-xfbml-parse-ignore">CREATE YOUR OWN</a>
                     </div>
 
                     <script>

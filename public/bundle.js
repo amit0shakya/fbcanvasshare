@@ -28856,10 +28856,12 @@ var Project = function (_Component) {
                             { id: 'demoCanvas', width: '600', height: '315' },
                             'alternate content'
                         ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'button',
                             { onClick: this.saveImage },
-                            'Save Image'
+                            'Save'
                         )
                     )
                 )
