@@ -29,11 +29,11 @@ module.exports=function(data){
 
     //Writing poster
     var poster = data.imgdata.split(';base64,').pop();
-        writeImg(poster,(path+"/poster.jpg"));
+        writeImg(poster,(path+"/poster.png"));
 
 
     //Writing html
-    writeHTML(makeHTML(uniqueID),(path+'/index.php'))
+    writeHTML(makeHTML(uniqueID),(path+'/index.html'))
 
     function writeImg(_data,_imgName){
 
@@ -103,7 +103,7 @@ module.exports=function(data){
                     <meta property="og:image" content="${image}"/>
                     <meta property="og:image:width" content="600">
                     <meta property="og:image:height" content="315">
-                    <meta property="og:image:type" content="image/jpg" />
+                    <meta property="og:image:type" content="image/png" />
                     <meta property="og:description" content="I love this selfie" />
 
                     // <meta property="og:image:secure_url" content=${secureContentURL} />                    
@@ -116,13 +116,20 @@ module.exports=function(data){
 
                     <style>
                             body{ 
-                                border:1px solid #000; 
-                                box-sizing: border-box; 
-                                margin: 0px; 
-                                padding: 0px;
+                                    border:1px solid #000; 
+                                    box-sizing: border-box; 
+                                    margin: 0px; 
+                                    padding: 0px;
                                 }
-                            p{float:left}
-                            img{margin:0px; padding:0px; float:left;}
+                            p {
+                                    float:left
+                            }
+
+                            img {
+                                margin:0px; 
+                                padding:0px; 
+                                float:left;
+                            }
                     </style>
 
                     <script>
@@ -138,10 +145,10 @@ module.exports=function(data){
             
                         FB.getLoginStatus(function(response) {
                             if (response.status === 'connected') {
-                            console.log('Logged in.');
+                                console.log('Logged in.');
                             }
                             else {
-                            FB.login();
+                                FB.login();
                             }
                         });
                         };
@@ -165,12 +172,11 @@ module.exports=function(data){
                     <img src="poster.jpg">
 
                     <div class="fb-share-button" data-href="https://${domain}/serverdata/${id}/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
                     </div>
-                    
+
                     </div>
                   </body>
-              
               </html>`
 
               return html;
