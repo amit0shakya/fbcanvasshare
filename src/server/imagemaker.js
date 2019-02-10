@@ -83,7 +83,7 @@ module.exports=function(data){
         // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
         // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
         var contentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
-        var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}`
+        var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}/index.html`
 
         var html=`  
                     <html>
@@ -93,12 +93,12 @@ module.exports=function(data){
 
                     
                     <meta property="og:site_name"     content="only4laugh.com" />
-                    <meta property="og:url"           content="${previewURL}" />
+                    <meta property="og:url"           content=${previewURL} />
                     <meta property="og:type"          content="Article" />
                     <meta property="og:title"         content="Post Title" />
                     <meta property="og:description"   content="Post Discription" />
-                    <meta property="og:image:secure_url" content="${contentURL}" />
-                    <meta property="og:image:url"     content="${contentURL}" />
+                    <meta property="og:image:secure_url" content=${contentURL} />
+                    <meta property="og:image:url"     content=${contentURL} />
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
                     <meta property="og:image:height"  content="300" />
@@ -158,8 +158,8 @@ module.exports=function(data){
                         </script>
                     <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
                     <img src="poster.png">
-                    <div class="fb-share-button" data-href="${previewURL}/index.html" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                    <div class="fb-share-button" data-href=${previewURL} data-layout="button_count" data-size="large" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${previewURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
                     </div>
                   </body>
               
