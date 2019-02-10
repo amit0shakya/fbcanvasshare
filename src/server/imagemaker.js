@@ -97,7 +97,8 @@ module.exports=function(data){
                     <meta property="og:type"          content="Article" />
                     <meta property="og:title"         content="Post Title" />
                     <meta property="og:description"   content="Post Discription" />
-                    <meta property="og:image:secure_url" content=${contentURL} />
+                    <meta property="og:image"         content=${contentURL} />
+                    <meta property="og:image:secure_url" content=${contentURL} />                    
                     <meta property="og:image:url"     content=${contentURL} />
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
