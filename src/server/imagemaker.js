@@ -82,8 +82,8 @@ module.exports=function(data){
 
         // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
         // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
-        var contentURL=`serverdata/${id}/poster.png`
-        var previewURL=`./preview/${id}`
+        var contentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
+        var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}`
 
         var html=`  
                     <html>
