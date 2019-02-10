@@ -124,30 +124,21 @@ module.exports=function(data){
                             appId      : '576379196100963',
                             cookie     : true,
                             xfbml      : true,
-                            version    : 'v2.12'
+                            version    : 'v3.2'
                         });
             
                         FB.AppEvents.logPageView();   
             
                         FB.getLoginStatus(function(response) {
                             if (response.status === 'connected') {
-                            console.log('Logged in.');
+                                console.log('Logged in.');
                             }
                             else {
-                            FB.login();
+                                FB.login();
                             }
                         });
                         };
                     
-                        (function(d, s, id){
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) {return;}
-                        js = d.createElement(s); js.id = id;
-                        js.src = "https://connect.facebook.net/en_US/sdk.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-            
-            
                         function myFacebookLogin() {
                             FB.login(function(){}, {scope: 'publish_actions'});
                         }
@@ -161,12 +152,14 @@ module.exports=function(data){
                         js = d.createElement(s); js.id = id;
                         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1';
                         fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                        </script>
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
                     <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
                     <img src="poster.png">
-                    <div class="fb-share-button" data-href="https://amit0shakyafbshare.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+
+                    <div class="fb-share-button" data-href="https://fbcanvasshare.herokuapp.com/serverdata/cuod9rw0jymerls-10-1-2019-13-26-422/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2Fcuod9rw0jymerls-10-1-2019-13-26-422%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    
                     </div>
                   </body>
               
