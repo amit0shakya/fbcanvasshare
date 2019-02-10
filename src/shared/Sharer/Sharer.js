@@ -23,10 +23,9 @@ class Sharer extends Component{
     }
 
     fbSetup(){
-
         this.setState({
-          fbBodyCode:<div className="fb-share-button" data-href="https://fbcanvasshare.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>,
-          imgPath:'/serverdata/'+this.props.match.params.id+'/poster.jpg'
+          fbBodyCode:<div className="fb-share-button" data-href="https://fbcanvasshare.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffbcanvasshare.herokuapp.com%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">Share</a></div>,
+          imgPath:'/serverdata/'+this.props.match.params.id+'/poster.png'
         })
     }
 

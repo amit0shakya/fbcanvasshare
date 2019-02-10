@@ -28739,7 +28739,7 @@ var Project = function (_Component) {
     }, {
         key: 'saveImage',
         value: function saveImage() {
-            stage.cache(0, 0, 600, 315);
+            stage.cache(0, 0, 600, 300);
 
             console.log("Save image command goes to server");
             var _parent = this;
@@ -28751,7 +28751,6 @@ var Project = function (_Component) {
                 _parent.id = response.data.id;
 
                 console.log("Image write success from server");
-                // https://amit0shakyafbshare.herokuapp.com
                 var domain = "fbcanvasshare.herokuapp.com";
                 var sharePath = "https://" + domain + '/serverdata/' + response.data.id + '/';
                 window.location.href = sharePath;
@@ -28774,7 +28773,7 @@ var Project = function (_Component) {
             stage.addChild(_rootCont);
             stage.addChild(_drawCont);
 
-            var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 315);
+            var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 300);
             var rectShape = new createjs.Shape(rect);
 
             _rootCont.addChild(rectShape);
@@ -28853,10 +28852,9 @@ var Project = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'canvas',
-                            { id: 'demoCanvas', width: '600', height: '315' },
+                            { id: 'demoCanvas', width: '600', height: '300' },
                             'alternate content'
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'button',
                             { onClick: this.saveImage },
@@ -29838,18 +29836,17 @@ var Sharer = function (_Component) {
     }, {
         key: 'fbSetup',
         value: function fbSetup() {
-
             this.setState({
                 fbBodyCode: _React2.default.createElement(
                     'div',
                     { className: 'fb-share-button', 'data-href': 'https://fbcanvasshare.herokuapp.com/', 'data-layout': 'button_count', 'data-size': 'large', 'data-mobile-iframe': 'true' },
                     _React2.default.createElement(
                         'a',
-                        { target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&src=sdkpreparse', className: 'fb-xfbml-parse-ignore' },
+                        { target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffbcanvasshare.herokuapp.com%2F&src=sdkpreparse', className: 'fb-xfbml-parse-ignore' },
                         'Share'
                     )
                 ),
-                imgPath: '/serverdata/' + this.props.match.params.id + '/poster.jpg'
+                imgPath: '/serverdata/' + this.props.match.params.id + '/poster.png'
             });
         }
     }, {
