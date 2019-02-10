@@ -29,11 +29,11 @@ module.exports=function(data){
 
     //Writing poster
     var poster = data.imgdata.split(';base64,').pop();
-        writeImg(poster,(path+"/poster.png"));
+        writeImg(poster,(path+"/poster.jpg"));
 
 
     //Writing html
-    writeHTML(makeHTML(uniqueID),(path+'/index.html'))
+    writeHTML(makeHTML(uniqueID),(path+'/index.php'))
 
     function writeImg(_data,_imgName){
 
@@ -82,28 +82,33 @@ module.exports=function(data){
 
         // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
         // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
-        var contentURL=`http://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
-        var secureContentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
-        var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}/index.html`
+        var domain= `fbcanvasshare.herokuapp.com`;
+        var image=`https://${domain}/serverdata/${id}/poster.jpg`;
+        var previewURL=`https://${domain}/serverdata/preview/${id}/`;
+        var title = `Social Post`;
+        var encodedURL = `https%3A%2F%2F${domain}%2Fserverdata%2F${id}%2F`;
 
         var html=`  
                     <!DOCTYPE html>
                     <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
                     <head>
-                    <title>Amit Website Post</title>
-                    <meta property="og:site_name"     content="only4laugh.com" />
-                    <meta property="og:url"           content=${previewURL} />
-                    <meta property="og:type"          content="Article" />
-                    <meta property="og:title"         content="Post Title" />
-                    <meta property="og:description"   content="Post Discription" />
-                    <meta property="og:image"         content=${contentURL} />
-                    <meta property="og:image:secure_url" content=${secureContentURL} />                    
-                    <meta property="og:image:url"     content=${contentURL} />
-                    <meta property="og:image:type"    content="image/png" />
-                    <meta property="og:image:width"   content="600" />
-                    <meta property="og:image:height"  content="300" />
-                    <meta property="fb:app_id"        content="576379196100963" />
+                    <title>${title}</title>
+                    <meta charset="UTF-8">         
                     
+                    <meta property="og:type" content="website"/>
+                    <meta property="fb:app_id" content="576379196100963"/>
+                    <meta property="og:title" content="${title}">
+                    <meta property="og:url" content="${previewURL}"/>
+
+                    <meta property="og:image" content="${image}"/>
+                    <meta property="og:image:width" content="600">
+                    <meta property="og:image:height" content="315">
+                    <meta property="og:image:type" content="image/jpg" />
+                    <meta property="og:description" content="I love this selfie" />
+
+                    // <meta property="og:image:secure_url" content=${secureContentURL} />                    
+                    // <meta property="og:image:url"     content=${contentURL} />
+                   
                     <meta name="robots"              content="all" />
                     <meta http-equiv="Cache-control" content="public" />
 
@@ -126,7 +131,7 @@ module.exports=function(data){
                             appId      : '576379196100963',
                             cookie     : true,
                             xfbml      : true,
-                            version    : 'v2.12'
+                            version    : 'v3.2'
                         });
             
                         FB.AppEvents.logPageView();   
@@ -154,12 +159,15 @@ module.exports=function(data){
                         js = d.createElement(s); js.id = id;
                         js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1';
                         fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));
-                        </script>
-                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
-                    <img src="poster.png">
-                    <div class="fb-share-button" data-href=${previewURL} data-layout="button_count" data-size="large" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${previewURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p><br/>
+                    <img src="poster.jpg">
+
+                    <div class="fb-share-button" data-href="https://${domain}/serverdata/${id}/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                    </div>
+                    
                     </div>
                   </body>
               

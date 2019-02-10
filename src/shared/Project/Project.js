@@ -37,7 +37,7 @@ class Project extends Component {
     }
 
     saveImage(){
-        stage.cache(0,0,600,300);
+        stage.cache(0,0,600,315);
 
         console.log("Save image command goes to server")
         var _parent = this;
@@ -51,7 +51,8 @@ class Project extends Component {
 
             console.log("Image write success from server")
             // https://amit0shakyafbshare.herokuapp.com
-            var sharePath='https://fbcanvasshare.herokuapp.com/serverdata/'+response.data.id+'/'
+            var serverPath = "https://fbcanvasshare.herokuapp.com";
+            var sharePath= serverPath + '/serverdata/'+response.data.id+'/'
             window.location.href = sharePath;
           })
 
@@ -72,7 +73,7 @@ class Project extends Component {
         stage.addChild(_rootCont);
         stage.addChild(_drawCont);
 
-        var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 300);
+        var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 315);
         var rectShape = new createjs.Shape(rect);
 
         _rootCont.addChild(rectShape)
@@ -137,7 +138,7 @@ class Project extends Component {
                     <h2>Project</h2>
                     <p>Draw Some random thing on Canvas otherwise make your Autograph and then click save
                         to save your artwork to server</p>
-                            <canvas id="demoCanvas" width="600" height="300">
+                            <canvas id="demoCanvas" width="600" height="315">
                                 alternate content
                             </canvas>
                             <button onClick={this.saveImage}>Save Image</button>
