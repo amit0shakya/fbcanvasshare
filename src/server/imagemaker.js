@@ -157,7 +157,7 @@ module.exports=function(data){
                         }(document, 'script', 'facebook-jssdk'));
                         </script>
                     <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
-                    <img src="${contentURL}">
+                    <img src="poster.png">
                     <div class="fb-share-button" data-href="${previewURL}   " data-layout="button_count" data-size="large" data-mobile-iframe="true">
                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
                     </div>
