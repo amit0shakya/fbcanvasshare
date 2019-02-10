@@ -114,8 +114,8 @@ module.exports=function(data){
                             body { 
                                 border:1px solid #000; 
                                 box-sizing: border-box; 
-                                margin: 0px; 
-                                padding: 0px;
+                                margin: 10px; 
+                                padding: 10px;
                             }
                             wrapper {
                                 margin: 0 auto;
@@ -139,7 +139,7 @@ module.exports=function(data){
                     <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a target="_blank" href="${baseURL}" class="fb-xfbml-parse-ignore">CREATE YOURS</a>
+                    <a target="_blank" href="${baseURL}" class="fb-xfbml-parse-ignore">CREATE YOUR OWN</a>
                     </div>
 
                     <script>
