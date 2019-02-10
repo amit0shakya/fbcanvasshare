@@ -79,45 +79,68 @@ module.exports=function(data){
     function makeHTML(id){
 
         console.log("Make HTML function")
-
-        var previewURL= `https://fbcanvasshare.herokuapp.com/serverdata/${id}/`;
-        var imageURL  = `https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`;
-        var encodedURL= `https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2F${id}%2F`; 
+        var domain = `fbcanvasshare.herokuapp.com`;
+        var baseURL = `https://${domain}/`;
+        var previewURL= `https://${domain}/serverdata/${id}/`;
+        var imageURL  = `https://${domain}/serverdata/${id}/poster.png`;
+        var encodedURL= `https%3A%2F%2F${domain}%2Fserverdata%2F${id}%2F`;
+        var title = `This is so cool`; 
+        var desc = `I made it using the great sharing tool, drawn it by hand. Can you do it best.`; 
+        
         var html=`  
                     <html>
                     
                     <head>
-                    <title>Amit Website Post</title>
+                    <title>${title}</title>
 
-                    
-                    <meta property="og:site_name"     content="only4laugh.com" />
+                    <meta property="fb:app_id"        content="576379196100963" />
+                    <meta property="og:site_name"     content="${domain}" />
                     <meta property="og:url"           content="${previewURL}" />
-                    <meta property="og:type"          content="Article" />
-                    <meta property="og:title"         content="Post Title" />
-                    <meta property="og:description"   content="Post Discription" />
+                    <meta property="og:type"          content="website" />
+                    <meta property="og:title"         content="${title}" />
+                    <meta property="og:description"   content="${desc}" />
                     <meta property="og:image"         content="${imageURL}" />
                     <meta property="og:image:secure_url"content="${imageURL}" />
                     <meta property="og:image:url"     content="${imageURL}" />
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
-                    <meta property="og:image:height"  content="300" />
-                    <meta property="fb:app_id"        content="576379196100963" />
-                    
+                    <meta property="og:image:height"  content="315" />                    
                     <meta name="robots"              content="all" />
                     <meta http-equiv="Cache-control" content="public" />
 
                     </head>
 
                     <style>
-                            body{ 
+                            body { 
                                 border:1px solid #000; 
                                 box-sizing: border-box; 
                                 margin: 0px; 
                                 padding: 0px;
-                                }
-                            p{float:left}
-                            img{margin:0px; padding:0px; float:left;}
+                            }
+                            wrapper {
+                                margin: 0 auto;
+                                max-width:1024px;
+                            }
+                            p { display: block; }
+                            img {
+                                margin:10px auto; 
+                                padding:0px;                                 
+                            }
                     </style>
+
+                    <body>
+                    
+                    <div id="fb-root"></div>
+                      
+                    <h2>Below Image is Needs to be share on Facebook, via facebook Page Share</h2>
+                    <br>
+                    <img src="poster.png">
+                    <br>
+                    <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a target="_blank" href="${baseURL}" class="fb-xfbml-parse-ignore">CREATE YOURS</a>
+                    </div>
 
                     <script>
                         window.fbAsyncInit = function() {
@@ -143,25 +166,15 @@ module.exports=function(data){
                         function myFacebookLogin() {
                             FB.login(function(){}, {scope: 'publish_actions'});
                         }
+
+                        (function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1';
+                            fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));
                       </script>
-
-                      <body>
-                      <div id="fb-root"></div>
-                        <script>(function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1';
-                        fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-
-                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>
-                    <img src="poster.png">
-
-                    <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
-                    
-                    </div>
                   </body>
               
               </html>`
