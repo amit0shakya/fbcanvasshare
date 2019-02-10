@@ -82,7 +82,8 @@ module.exports=function(data){
 
         // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
         // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
-        var contentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
+        var contentURL=`http://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
+        var secureContentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
         var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}/index.html`
 
         var html=`  
@@ -98,7 +99,7 @@ module.exports=function(data){
                     <meta property="og:title"         content="Post Title" />
                     <meta property="og:description"   content="Post Discription" />
                     <meta property="og:image"         content=${contentURL} />
-                    <meta property="og:image:secure_url" content=${contentURL} />                    
+                    <meta property="og:image:secure_url" content=${secureContentURL} />                    
                     <meta property="og:image:url"     content=${contentURL} />
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
