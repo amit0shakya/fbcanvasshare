@@ -1010,7 +1010,7 @@ var Project = function (_Component) {
     }, {
         key: 'saveImage',
         value: function saveImage() {
-            stage.cache(0, 0, 600, 300);
+            stage.cache(0, 0, 600, 315);
 
             console.log("Save image command goes to server");
             var _parent = this;
@@ -1023,7 +1023,8 @@ var Project = function (_Component) {
 
                 console.log("Image write success from server");
                 // https://amit0shakyafbshare.herokuapp.com
-                var sharePath = 'https://fbcanvasshare.herokuapp.com/serverdata/' + response.data.id + '/';
+                var serverPath = "https://fbcanvasshare.herokuapp.com";
+                var sharePath = serverPath + '/serverdata/' + response.data.id + '/';
                 window.location.href = sharePath;
             });
         }
@@ -1044,7 +1045,7 @@ var Project = function (_Component) {
             stage.addChild(_rootCont);
             stage.addChild(_drawCont);
 
-            var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 300);
+            var rect = new createjs.Graphics().beginStroke("red").beginFill('#fff5ed').drawRect(0, 0, 600, 315);
             var rectShape = new createjs.Shape(rect);
 
             _rootCont.addChild(rectShape);
@@ -1123,7 +1124,7 @@ var Project = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'canvas',
-                            { id: 'demoCanvas', width: '600', height: '300' },
+                            { id: 'demoCanvas', width: '600', height: '315' },
                             'alternate content'
                         ),
                         _react2.default.createElement(
@@ -1264,7 +1265,7 @@ var Sharer = function (_Component) {
             this.setState({
                 fbBodyCode: _React2.default.createElement(
                     'div',
-                    { className: 'fb-share-button', 'data-href': 'https://amit0shakyafbshare.herokuapp.com/', 'data-layout': 'button_count', 'data-size': 'large', 'data-mobile-iframe': 'true' },
+                    { className: 'fb-share-button', 'data-href': 'https://fbcanvasshare.herokuapp.com/', 'data-layout': 'button_count', 'data-size': 'large', 'data-mobile-iframe': 'true' },
                     _React2.default.createElement(
                         'a',
                         { target: '_blank', href: 'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Famit0shakyafbshare.herokuapp.com%2F&src=sdkpreparse', className: 'fb-xfbml-parse-ignore' },
@@ -3665,10 +3666,10 @@ module.exports = function (data) {
 
     //Writing poster
     var poster = data.imgdata.split(';base64,').pop();
-    writeImg(poster, path + "/poster.png");
+    writeImg(poster, path + "/poster.jpg");
 
     //Writing html
-    writeHTML(makeHTML(uniqueID), path + '/index.html');
+    writeHTML(makeHTML(uniqueID), path + '/index.php');
 
     function writeImg(_data, _imgName) {
 
@@ -3716,11 +3717,13 @@ module.exports = function (data) {
 
         // var contentURL=`https://amit0shakyafbshare.herokuapp.com/serverdata/${id}/poster.png`
         // var previewURL=`https://amit0shakyafbshare.herokuapp.com/preview/${id}`
-        var contentURL = 'http://fbcanvasshare.herokuapp.com/serverdata/' + id + '/poster.png';
-        var secureContentURL = 'https://fbcanvasshare.herokuapp.com/serverdata/' + id + '/poster.png';
-        var previewURL = 'https://fbcanvasshare.herokuapp.com/serverdata/preview/' + id + '/index.html';
+        var domain = 'fbcanvasshare.herokuapp.com';
+        var image = 'https://' + domain + '/serverdata/' + id + '/poster.jpg';
+        var previewURL = 'https://' + domain + '/serverdata/preview/' + id + '/';
+        var title = 'Social Post';
+        var encodedURL = 'https%3A%2F%2F' + domain + '%2Fserverdata%2F' + id + '%2F';
 
-        var html = '  \n                    <!DOCTYPE html>\n                    <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">\n                    <head>\n                    <title>Amit Website Post</title>\n                    <meta property="og:site_name"     content="only4laugh.com" />\n                    <meta property="og:url"           content=' + previewURL + ' />\n                    <meta property="og:type"          content="Article" />\n                    <meta property="og:title"         content="Post Title" />\n                    <meta property="og:description"   content="Post Discription" />\n                    <meta property="og:image"         content=' + contentURL + ' />\n                    <meta property="og:image:secure_url" content=' + secureContentURL + ' />                    \n                    <meta property="og:image:url"     content=' + contentURL + ' />\n                    <meta property="og:image:type"    content="image/png" />\n                    <meta property="og:image:width"   content="600" />\n                    <meta property="og:image:height"  content="300" />\n                    <meta property="fb:app_id"        content="576379196100963" />\n                    \n                    <meta name="robots"              content="all" />\n                    <meta http-equiv="Cache-control" content="public" />\n\n                    </head>\n\n                    <style>\n                            body{ \n                                border:1px solid #000; \n                                box-sizing: border-box; \n                                margin: 0px; \n                                padding: 0px;\n                                }\n                            p{float:left}\n                            img{margin:0px; padding:0px; float:left;}\n                    </style>\n\n                    <script>\n                        window.fbAsyncInit = function() {\n                        FB.init({\n                            appId      : \'576379196100963\',\n                            cookie     : true,\n                            xfbml      : true,\n                            version    : \'v2.12\'\n                        });\n            \n                        FB.AppEvents.logPageView();   \n            \n                        FB.getLoginStatus(function(response) {\n                            if (response.status === \'connected\') {\n                            console.log(\'Logged in.\');\n                            }\n                            else {\n                            FB.login();\n                            }\n                        });\n                        };\n                    \n                        function myFacebookLogin() {\n                            FB.login(function(){}, {scope: \'publish_actions\'});\n                        }\n                      </script>\n                      <body>\n\n                      <div id="fb-root"></div>\n                        <script>(function(d, s, id) {\n                        var js, fjs = d.getElementsByTagName(s)[0];\n                        if (d.getElementById(id)) return;\n                        js = d.createElement(s); js.id = id;\n                        js.src = \'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1\';\n                        fjs.parentNode.insertBefore(js, fjs);\n                        }(document, \'script\', \'facebook-jssdk\'));\n                        </script>\n                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p>\n                    <img src="poster.png">\n                    <div class="fb-share-button" data-href=' + previewURL + ' data-layout="button_count" data-size="large" data-mobile-iframe="true">\n                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' + previewURL + '&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>\n                    </div>\n                  </body>\n              \n              </html>';
+        var html = '  \n                    <!DOCTYPE html>\n                    <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">\n                    <head>\n                    <title>' + title + '</title>\n                    <meta charset="UTF-8">         \n                    \n                    <meta property="og:type" content="website"/>\n                    <meta property="fb:app_id" content="576379196100963"/>\n                    <meta property="og:title" content="' + title + '">\n                    <meta property="og:url" content="' + previewURL + '"/>\n\n                    <meta property="og:image" content="' + image + '"/>\n                    <meta property="og:image:width" content="600">\n                    <meta property="og:image:height" content="315">\n                    <meta property="og:image:type" content="image/jpg" />\n                    <meta property="og:description" content="I love this selfie" />\n\n                    // <meta property="og:image:secure_url" content=' + secureContentURL + ' />                    \n                    // <meta property="og:image:url"     content=' + contentURL + ' />\n                   \n                    <meta name="robots"              content="all" />\n                    <meta http-equiv="Cache-control" content="public" />\n\n                    </head>\n\n                    <style>\n                            body{ \n                                border:1px solid #000; \n                                box-sizing: border-box; \n                                margin: 0px; \n                                padding: 0px;\n                                }\n                            p{float:left}\n                            img{margin:0px; padding:0px; float:left;}\n                    </style>\n\n                    <script>\n                        window.fbAsyncInit = function() {\n                        FB.init({\n                            appId      : \'576379196100963\',\n                            cookie     : true,\n                            xfbml      : true,\n                            version    : \'v3.2\'\n                        });\n            \n                        FB.AppEvents.logPageView();   \n            \n                        FB.getLoginStatus(function(response) {\n                            if (response.status === \'connected\') {\n                            console.log(\'Logged in.\');\n                            }\n                            else {\n                            FB.login();\n                            }\n                        });\n                        };\n                    \n                        function myFacebookLogin() {\n                            FB.login(function(){}, {scope: \'publish_actions\'});\n                        }\n                      </script>\n                      <body>\n\n                      <div id="fb-root"></div>\n                        <script>(function(d, s, id) {\n                        var js, fjs = d.getElementsByTagName(s)[0];\n                        if (d.getElementById(id)) return;\n                        js = d.createElement(s); js.id = id;\n                        js.src = \'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=576379196100963&autoLogAppEvents=1\';\n                        fjs.parentNode.insertBefore(js, fjs);\n                        }(document, \'script\', \'facebook-jssdk\'));</script>\n\n                    <p>Below Image is Needs to be share on Facebook, via facebook Page Share</p><br/>\n                    <img src="poster.jpg">\n\n                    <div class="fb-share-button" data-href="https://' + domain + '/serverdata/' + id + '/" data-layout="button_count" data-size="small" data-mobile-iframe="true">\n                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=' + encodedURL + '&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>\n                    </div>\n                    \n                    </div>\n                  </body>\n              \n              </html>';
 
         return html;
     }
