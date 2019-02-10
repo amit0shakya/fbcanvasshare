@@ -87,12 +87,10 @@ module.exports=function(data){
         var previewURL=`https://fbcanvasshare.herokuapp.com/serverdata/preview/${id}/index.html`
 
         var html=`  
-                    <html>
-                    
+                    <!DOCTYPE html>
+                    <html prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
                     <head>
                     <title>Amit Website Post</title>
-
-                    
                     <meta property="og:site_name"     content="only4laugh.com" />
                     <meta property="og:url"           content=${previewURL} />
                     <meta property="og:type"          content="Article" />
