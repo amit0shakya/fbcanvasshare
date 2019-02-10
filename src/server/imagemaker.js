@@ -80,11 +80,9 @@ module.exports=function(data){
 
         console.log("Make HTML function")
 
-        var contentURL=`https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`
-        var previewURL=`https://fbcanvasshare.herokuapp.com/preview/${id}`
-        var encodedURL = `https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2F${id}%2F`;
-        
-
+        var previewURL= `https://fbcanvasshare.herokuapp.com/serverdata/${id}/`;
+        var imageURL  = `https://fbcanvasshare.herokuapp.com/serverdata/${id}/poster.png`;
+        var encodedURL= `https%3A%2F%2Ffbcanvasshare.herokuapp.com%2Fserverdata%2F${id}%2F`; 
         var html=`  
                     <html>
                     
@@ -93,12 +91,13 @@ module.exports=function(data){
 
                     
                     <meta property="og:site_name"     content="only4laugh.com" />
-                    <meta property="og:url"           content=${previewURL} />
+                    <meta property="og:url"           content="${previewURL}" />
                     <meta property="og:type"          content="Article" />
                     <meta property="og:title"         content="Post Title" />
                     <meta property="og:description"   content="Post Discription" />
-                    <meta property="og:image:secure_url"content=${contentURL} />
-                    <meta property="og:image:url"     content=${contentURL} />
+                    <meta property="og:image"         content="${imageURL}" />
+                    <meta property="og:image:secure_url"content="${imageURL}" />
+                    <meta property="og:image:url"     content="${imageURL}" />
                     <meta property="og:image:type"    content="image/png" />
                     <meta property="og:image:width"   content="600" />
                     <meta property="og:image:height"  content="300" />
@@ -160,7 +159,7 @@ module.exports=function(data){
                     <img src="poster.png">
 
                     <div class="fb-share-button" data-href="${previewURL}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${previewURL}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedURL}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     
                     </div>
                   </body>
